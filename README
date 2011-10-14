@@ -1,1 +1,6 @@
-Hello
+Postify
+author: joedowney
+
+A jQuery plugin that changes links into POST requests.
+
+see test/index.html for usage
