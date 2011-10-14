@@ -2,14 +2,67 @@
 <html>
     <head>
         <title>Postify Test</title>
-        
+        <style>
+            #options_table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            #options_table td {
+                border: 1px solid #bbb;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
         <h1>Postify</h1>
         <p>A jQuery plugin that turns links into POST requests. It can also turn links into ajax-ish links.</p>
         
         <h2>Options</h2>
-        
+        <table id="options_table">
+            <thead>
+                <tr>
+                    <th>option</th>
+                    <th>possible values</th>
+                    <th>default value</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>confirm</td>
+                    <td>true || false</td>
+                    <td>false</td>
+                    <td>show a confirm dialog before proceeding</td>
+                </tr>
+                <tr>
+                    <td>ajax</td>
+                    <td>true || false</td>
+                    <td>false</td>
+                    <td>submit post asynchronously</td>
+                </tr>
+                <tr>
+                    <td>ajax_onsuccess</td>
+                    <td>function</td>
+                    <td></td>
+                    <td>
+                        use with 'ajax':true<br>
+                        code to be executed after the request is complete. the response from completed request is passed to the function.
+                    </td>
+                </tr>
+                <tr>
+                    <td>input</td>
+                    <td></td>
+                    <td>postify</td>
+                    <td>the name of the input field that is added to the form that is submitted</td>
+                </tr>
+                <tr>
+                    <td>input_value</td>
+                    <td></td>
+                    <td>ok</td>
+                    <td>the value of the input field that is added to the form that is submitted</td>
+                </tr>
+            </tbody>
+        </table>
         <h2>Examples</h2>
         <ul>
             <li><a href="basic.html">Basic example</a></li>
