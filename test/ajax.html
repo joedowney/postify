@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Postify Ajax Example</title>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="../jquery.postify.js"></script>
+    </head>
+    <body>
+        <h1>Postify Ajax Example</h1>
+        <ul>
+            <li><a href="response.php?foo=bar" class="postify">Link 1 (foo=bar)</a></li>
+            <li><a href="response.php?message=hello" class="postify">Link 2 (message=hello)</a></li>
+        </ul>
+        <h2>Response</h2>
+        <p id="response" style="padding: 20px; border: 1px solid #cfcfcf; background-color: #f0f0f0;"></p>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('a.postify').postify({
+                    'ajax' : true,
+                    'ajax_onsuccess' : function(response) {
+                        $('p#response').html(response);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

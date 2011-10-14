@@ -7,9 +7,7 @@
             'input_value'         : 'ok',
             'confirm'             : false,
             'ajax'                : false,
-            'ajax_delete_closest' : false,
-            'ajax_onsuccess'      : false,
-            'ajax_fade_out'       : 200
+            'ajax_onsuccess'      : function() { }
         };
         if (options) { 
             $.extend(settings, options);
@@ -17,11 +15,12 @@
     
         return this.each(function() {
             $(this).click(function(e) {
+            
                 e.preventDefault();
                 
                 var action = $(this).attr('href');
                 
-                // die gracefully? if there is no href attrib
+                // quit if there is no href attrib
                 if ( ! action) {
                     return true;
                 }
@@ -33,19 +32,10 @@
                         var link = $(this);
                         var params = settings.input ? settings.input + '=' + settings.input_value : '';
                         $.post(action, params, function(response) {
-                            if (settings.ajax_delete_closest) {
-                                if (settings.ajax_fade_out) {
-                                    $(link).closest(settings.ajax_delete_closest).fadeOut(settings.ajax_fade_out);
-                                }
-                                else {
-                                    $(link).closest(settings.ajax_delete_closest).remove();
-                                }
-                            }
                             if (settings.ajax_onsuccess) {
-                                var fnc = settings.ajax_onsuccess;
-                                fnc(response);
+                                settings.ajax_onsuccess.call(link, response);
                             }
-                        }, 'json');
+                        });
                     }
                     
                     else {
