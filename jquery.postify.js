@@ -56,7 +56,7 @@
                     if (settings.ajax_onsuccess) {
                         settings.ajax_onsuccess.call(link, response);
                     }
-                });
+                }, 'json');
             }
             
             // normal form submission
