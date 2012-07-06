@@ -93,6 +93,6 @@
         else {
             $.error('Method ' +  args + ' does not exist for postify');
         }
-    }
+    };
 
 })(jQuery);
